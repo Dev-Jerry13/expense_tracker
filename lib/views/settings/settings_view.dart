@@ -26,14 +26,14 @@ class SettingsView extends ConsumerWidget {
           title: const Text('Export transactions as CSV'),
           onTap: () async {
             final transactions = ref.read(transactionsControllerProvider);
-            final rows = <List<dynamic>>[
+            final rows = [
               ['id', 'title', 'amount', 'type', 'category', 'date', 'note']
             ];
             for (final t in transactions) {
               rows.add([
                 t.id,
                 t.title,
-                t.amount.toStringAsFixed(2),
+                t.amount,
                 t.type.name,
                 t.category,
                 t.date.toIso8601String(),
